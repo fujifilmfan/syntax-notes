@@ -1,1 +1,1 @@
-The notes in this directory were based on the Codecademy JavaScript course, March-April 2020.
+The notes in this directory were based on the Codecademy ["Introduction to JavaScript"](https://www.codecademy.com/learn/introduction-to-javascript) course, taken March-April 2020.
