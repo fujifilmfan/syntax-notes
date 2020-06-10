@@ -22,8 +22,7 @@ reflecting the site
 
 ## Web interface
 ----
-The documentation can be viewed and navigated via web browser using MkDocs.  On MacOS, once 
-MkDocs is installed, the server can be started with the following command:
+The documentation can be viewed and navigated via web browser using MkDocs.  On MacOS, once MkDocs is installed, the server can be started with the following command:
 ```bash
 $ mkdocs serve --dev-addr 127.0.0.1:8001
 ```
