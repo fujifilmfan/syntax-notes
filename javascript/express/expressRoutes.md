@@ -80,3 +80,43 @@ Now let’s take a look at the `PUT` method. Usually `PUT` request looks like th
 This request will modify book record with id `12` by replacing existing data with the data sent in the body of the request. But if this resource (book with id `12`) does not exist then this record will be created.
 
 The same situation again, I sent the request and accidentally I sent the duplicated request. What happens? The first request will modify existing resource or create a new one and the second request will not make any difference (book with id `12` already exists and it has the same data as the one sent in this request). This is what makes `PUT` idempotent by convention.
+
+## More on routes
+---
+
+```javascript
+app.use((req, res, next) => {
+  console.log("Hello!");
+  next();
+});
+
+app.get('/user', (req, res, next) => {
+  console.log("You are visiting 'user'");
+  next();
+});
+
+app.post('/user', (req, res, next) => {
+  console.log("Hope you enjoy your stay!");
+});
+
+app.use('/user/:id', (req, res, next) => {
+  console.log("The weather is wonderful,");
+  next();
+});
+
+app.get('/user/:id', (req, res, next) => {
+  console.log("And the sun is shining!");
+  next();
+});
+
+app.get('/user', (req, res, next) => {
+  console.log("Well, goodbye!");
+ next();
+});
+```
+logs
+> Hello!  
+> You are visiting 'user'  
+> Well, goodbye!  
+
+The functions are evaluated in order, but `next()` must be included.
