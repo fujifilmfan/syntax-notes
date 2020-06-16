@@ -1,4 +1,4 @@
-1/. DRY
+1\. DRY
 
 Before:
 ```javascript
@@ -44,9 +44,9 @@ app.get('/whatis/banana', (req, res, next) => {
 });
 ```
 
-2/. Remember to add `next()` at the end of a middleware function.
+2\. Remember to add `next()` at the end of a middleware function.
 
-3/. Add an attribute to the request body.
+3\. Add an attribute to the request body.
 
 Before:
 ```javascript
@@ -110,7 +110,7 @@ app.get('/appetizers', (req, res, next) => {
 });
 ```
 
-4/. Add error handling.
+4\. Add error handling.
 
 Before:
 ```javascript
@@ -159,7 +159,7 @@ const errorHandler = (err, req, res, next) => {
 app.use(errorHandler);
 ```
 
-5/. Add the `morgan` logging middleware.
+5\. Add the `morgan` logging middleware.
 
 Before:
 ```javascript
@@ -187,7 +187,7 @@ const morgan = require('morgan');
 app.use(morgan('short'));
 ```
 
-6/. Use `app.use` and the `indexExists` middleware function for all `/data/:index` paths.
+6\. Use `app.use` and the `indexExists` middleware function for all `/data/:index` paths.
 
 Before:
 ```javascript
@@ -235,7 +235,7 @@ After:
 app.use('/data/:index', indexExists);
 ```
 
-7/. CORS
+7\. CORS
 
 Before:
 ```javascript
@@ -252,7 +252,7 @@ const cors = require('cors');
 app.use(cors());
 ```
 
-8/. Make some things private.
+8\. Make some things private.
 
 Before:
 ```javascript
@@ -316,7 +316,7 @@ app.get('/:userId/fav-sites', isAdmin, (req, res, next) => {
 });
 ```
 
-9/. Use `Router.param` to DRY this `appleRouter`. Attach the apple `variety` to the request body if it exists, send a 404 response if it does not. In each individual route, send the appropriate property from that apple object.
+9\. Use `Router.param` to DRY this `appleRouter`. Attach the apple `variety` to the request body if it exists, send a 404 response if it does not. In each individual route, send the appropriate property from that apple object.
 
 Before:
 ```javascript
