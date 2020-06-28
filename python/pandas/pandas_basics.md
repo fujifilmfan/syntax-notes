@@ -66,6 +66,8 @@ Command | Function
 `print(type(column_name))` | print column data type (<class 'pandas.core.series.Series'>)
 `print(type(df))` | print DataFrame data type (<class 'pandas.core.frame.DataFrame'>)
 `rows, columns = df.shape` | store the number of rows and columns of the DataFrame
+`print(df.size)` | print the number of rows * columns, I think
+`print(len(df))` | print the number of rows of the DataFrame
     
 Printing the index:
 ```python

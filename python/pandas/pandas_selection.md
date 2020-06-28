@@ -28,6 +28,8 @@ Command | Selection
 `df[df.month.isin(['January','February', 'March'])]` | select all rows matching the list elements
 `df.head(10)` | select first 10 rows, not including the header
 `df.tail(10)` | select last 10 rows, not including the header
+`df[df.column1.isnull()]` | return a DataFrame consisting only of rows for which column1 has null values
+
 
 Printing a single row:
 ```
@@ -58,4 +60,83 @@ If we have an `orders` table, then `orders[orders.order_id == 3]` gives a series
 ```python
 my_order = orders[orders.order_id == 3]
 my_product = my_order.product_id.values[0]
+```
+
+## Page visits funnel (project)
+---
+Original CSVs can be found in `cool_t-shirts_inc/` locally.
+
+```python
+import codecademylib
+import pandas as pd
+
+# These all contain a column with user_id and some time.
+visits = pd.read_csv('visits.csv',
+                     parse_dates=[1])
+cart = pd.read_csv('cart.csv',
+                   parse_dates=[1])
+checkout = pd.read_csv('checkout.csv',
+                       parse_dates=[1])
+purchase = pd.read_csv('purchase.csv',
+                       parse_dates=[1])
+# print(visits.head)
+# print(cart.head)
+# print(checkout.head)
+# print(purchase.head)
+# print(visits.shape)  # (2000, 2)
+# print(visits.user_id.nunique())  # 2000 unique
+# print(cart.shape)  # (400, 2)  348 unique
+# print(checkout.shape)  # (360, 2)  226 unique
+# print(purchase.shape)  # (252, 2)  144 unique
+
+visits_cart = pd.merge(visits, cart, how='left')
+# print(len(visits_cart))  # 2052
+
+# Rows with null values in cart_time represent users that did not add a T-Shirt to their cart.
+# print(len(visits_cart[visits_cart.cart_time.isnull()]))  # 1652
+
+shirt_in_cart = len(cart)
+no_shirt_in_cart = len(visits_cart[visits_cart.cart_time.isnull()])
+number_visitors = len(visits)
+number_visitors2 = visits_cart[visits_cart.visit_time.notnull()]
+# print(number_visitors2.user_id.nunique())  # 2000 unique, but its 2052 long, so some users are repeated
+
+percent_cart1 = (float(no_shirt_in_cart) / float(number_visitors)) * 100
+percent_cart2 = ((float(number_visitors) - float(shirt_in_cart)) / float(number_visitors)) * 100
+# print(percent_cart1)  # 82.6%  use this one
+# print(percent_cart2)  # 80.0%
+
+cart_checkout = pd.merge(cart, checkout, how='left')
+# print(len(cart_checkout[cart_checkout.checkout_time.isnull()]))  # 126
+shirt_in_checkout = len(checkout)
+no_shirt_in_checkout = len(cart_checkout[cart_checkout.checkout_time.isnull()])
+percent_checkout = (float(no_shirt_in_checkout) / float(shirt_in_checkout)) * 100
+# print(percent_checkout)  # 35.0
+
+all_data = visits.merge(cart, how='left').merge(checkout, how='left').merge(purchase, how='left')
+# print(all_data.head)
+
+checkout_purchase = pd.merge(checkout, purchase, how='left')
+shirt_purchased = len(purchase)
+no_shirt_purchased = len(all_data[all_data.checkout_time.notnull()])
+no_shirt_purchased2 = len(checkout_purchase[checkout_purchase.purchase_time.isnull()])
+# print(shirt_purchased)
+# print(no_shirt_purchased)
+# print(no_shirt_purchased2)
+percent_no_purchase_f_checkout = (float(no_shirt_purchased2) / float(shirt_purchased)) * 100
+# print(percent_no_purchase_f_checkout)  # 40.1
+
+number_of_visits = len(all_data[all_data.visit_time.notnull()])
+number_in_cart = len(all_data[all_data.cart_time.notnull()])
+number_in_checkout = len(all_data[all_data.checkout_time.notnull()])
+number_purchases = len(all_data[all_data.purchase_time.notnull()])
+print(number_of_visits, number_in_cart, number_in_checkout, number_purchases)
+percent_visit_to_cart = (float(number_in_cart) / float(number_of_visits)) * 100
+percent_cart_to_checkout = (float(number_in_checkout) / float(number_in_cart)) * 100
+percent_checkout_to_purchase = (float(number_purchases) / float(number_in_checkout)) * 100
+print(percent_visit_to_cart, percent_cart_to_checkout, percent_checkout_to_purchase)  # (36.31457208943716, 86.62420382165605, 85.29411764705883)
+
+all_data['time_to_purchase'] = all_data.purchase_time - all_data.visit_time
+# print(all_data.time_to_purchase)
+print(all_data.time_to_purchase.mean())  # 0 days 00:44:02.672413
 ```
