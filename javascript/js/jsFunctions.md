@@ -27,7 +27,7 @@ fruits.forEach(func_expression);
 
 // named function expression
 const func_expression = function my_func(fruit) {
-    console.log(`I want to eat a ${fruit}`);
+  console.log(`I want to eat a ${fruit}`);
 }
 ```
 

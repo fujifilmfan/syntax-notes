@@ -22,14 +22,15 @@ reflecting the site
 
 ## Web interface
 ----
-The documentation can be viewed and navigated via web browser using MkDocs.  On MacOS, once MkDocs is installed, the server can be started with the following command:
+The documentation can be viewed and navigated via web browser using MkDocs.  To start the server on MacOS:
+* navigate to the directory that hosts `mkdocs.yml`
+* activate a virtual environment (mine is called "docs")
+* install mkdocs (like `$ poetry add mkdocs mkdocs-material mkdocs-material-extensions`)
+* start the server:
 ```bash
 $ mkdocs serve --dev-addr 127.0.0.1:8001
 ```
 where `--dev-addr` is used to override the default IP address, I think.  The server polls the docs for changes so that one can see real-time updates to pages as they are written.
-
-!!! note
-    Launch `mkdocs` from within an active virtual environment where it is installed.
 
 Helpful MkDocs-related references:
 
