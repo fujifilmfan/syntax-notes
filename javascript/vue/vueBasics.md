@@ -62,7 +62,10 @@ The `v-for` directive can be used to iterate through an array and render each it
 ```
 
 ### `v-model`
-The `v-model` directive creates a two-way binding on a form field.  Thus, it reads the `data` object and displays the value on the input element but can also change the `data` object if the user modifies the value in the input. This works for `computed` values as well.
+The `v-model` directive creates a two-way binding on a form field.  Thus, it reads the `data` object and displays the value on the input element but can also change the `data` object if the user modifies the value in the input. This works for `computed` properties as well.
+
+The directive works on all HTML form field elements, such as `<input>`, `<textarea>`, and `<select>`.
+
 ```html
 <input v-model="username" />
 ```
@@ -73,6 +76,8 @@ The `v-on:click` directive takes JavaScript as its value and runs the code when 
 <button v-on:click="tweets.push(newTweet)">Add Tweet</button>
 ```
 where `tweets` is an array on the `data` object of the app.
+
+Shorthand: `@`
 
 ## Components
 ---
