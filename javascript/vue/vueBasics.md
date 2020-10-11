@@ -62,7 +62,7 @@ The `v-for` directive can be used to iterate through an array and render each it
 ```
 
 ### `v-model`
-The `v-model` directive creates a two-way binding on a form field.  Thus, it reads the `data` object and displays the value on the input element but can also change the `data` object if the user modifies the value in the input.
+The `v-model` directive creates a two-way binding on a form field.  Thus, it reads the `data` object and displays the value on the input element but can also change the `data` object if the user modifies the value in the input. This works for `computed` values as well.
 ```html
 <input v-model="username" />
 ```
