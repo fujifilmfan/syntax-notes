@@ -27,7 +27,6 @@ The motivation was to understand enough of the basics of the library to start an
 * [Accessing a value in a series](pandas_selection.md#accessing-a-value-in-a-series)
 * [Page visits funnel (example)](pandas_selection.md#page-visits-funnel-project)
 
-
 ### [pandas_modification.md](pandas_modification.md)
 
 * [Adding a column](pandas_modification.md#adding-a-column)
@@ -55,4 +54,3 @@ The motivation was to understand enough of the basics of the library to start an
 * [Mismatched merges and outer merge](pandas_merges.md#mismatched-merges-and-outer-merge)
 * [Left and right merge](pandas_merges.md#left-and-right-merge)
 * [Concatenating DataFrames](pandas_merges.md#concatenating-dataframes)
-
