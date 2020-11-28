@@ -1,5 +1,4 @@
 ## Column statistics
----
 General form: `df.column_name.command()`  
 Example: `customers.age.nunique()`  
 
@@ -15,11 +14,9 @@ nunique | Number of unique values in column
 unique | List of unique values in column
 
 ## Aggregate functions
----
 General form: `df.groupby('column1').column2.measurement()`
 
 ### Aggregate statistics
-
 Example: `pricey_shoes = df.groupby('shoe_type').price.max()`
 ```
 shoe_type
@@ -31,7 +28,6 @@ Name: price, dtype: int64
 ```
 
 ### Reset index
-
 The `pricey_shoes` object is a series, not a DataFrame.  To make it a DataFrame and make the shoe_type a column and not an index, use `reset_index()`:
 ```python
 pricey_shoes = orders.groupby('shoe_type').price.max().reset_index()
@@ -54,7 +50,6 @@ pricey_shoes = pricey_shoes.rename(columns={'shoe_type': 'shoe type'})
 ```
 
 ### Using lambdas and `apply()`
-
 For more complicated operations, we can use `apply()` and lambda functions.  Lambda functions take a list of values as input.  For example, to find the 25th percentile for shoe price for each `shoe_color`, we can use:
 
 ```python
@@ -62,7 +57,6 @@ cheap_shoes = orders.groupby('shoe_color').price.apply(lambda x: np.percentile(x
 ```
 
 ### Group by more than one column
-
 Pass a list to `groupby()`:
 ```python
 shoe_counts = orders.groupby(['shoe_type', 'shoe_color'])['id'].count().reset_index()
@@ -94,7 +88,6 @@ gives:
 That `['id']` bit is not intuitive to me, but that's the column to evaluate.  Oh, it's the same as using `.id`.
 
 ## Pivot tables
----
 Instead of grouping by two columns and getting this:
 ```
 Location 	Day of Week 	Total Sales
@@ -133,7 +126,6 @@ pivoted = unpivoted.pivot(
 "Just like with `groupby`, the output of a pivot command is a new DataFrame, but the indexing tends to be 'weird', so we usually follow up with `.reset_index()`."
 
 ## Questions
----
 Why does this work:
 ```python
 ad_clicks['is_click'] = ~ad_clicks.ad_click_timestamp.isnull()

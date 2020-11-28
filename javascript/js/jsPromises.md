@@ -1,9 +1,10 @@
 ## Introduction
 ---
 "Promises are objects that represent the eventual outcome of an asynchronous operation."  They can be in one of three states:
-* pending - initial state; operation not completed
-* fulfilled - successfully completed
-* rejected - operation failed, usually due to an `Error`
+
+* pending - initial state; operation not completed  
+* fulfilled - successfully completed  
+* rejected - operation failed, usually due to an `Error`  
 
 The latter two make the promise *settled*.
 

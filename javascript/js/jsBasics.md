@@ -76,3 +76,14 @@ let greeting = 'Hello, world!';
 console.log(greeting.length);
 // prints: 13
 ```
+
+### Multi-line string
+```javascript
+client.query(`
+  query {
+    user {
+      id
+      name
+    }
+  }`);
+```

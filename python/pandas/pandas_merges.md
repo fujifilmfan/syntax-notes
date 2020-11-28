@@ -1,5 +1,4 @@
 ## Inner merge
----
 
 ### Motivation
 
@@ -49,7 +48,6 @@ new_df = orders.merge(customers)
 This allows chaining.
 
 ## Merge on specific columns
----
 In the case in which two tables share a column name (like `id`), we can rename the columns before performing a merge:
 ```python
 pd.merge(orders, customers.rename(columns={'id': 'customer_id'}))
@@ -68,7 +66,6 @@ pd.merge(
 This will cause Pandas to rename the `id` columns `id_x` and `id_y` since it does not allow two columns to have the same name.  Defaults can be overridden using the `suffixes` argument. 
 
 ## Mismatched merges and outer merge
----
 During an inner merge, rows that have no match will not be included in the resulting DataFrame.
 
 An outer join will include all rows from both tables even if they don't match.  Missing values get `None` or `nan`.
@@ -109,7 +106,6 @@ Combined inventory:
 ```
 
 ## Left and right merge
----
 "A left merge includes all rows from the first (left) table, but only rows from the second (right) table that match the first table."  Use this to answer the question, "Which rows exist in the left table (based on the first column's value) but not in the right table?"
 
 Right merge is the opposite.
@@ -142,14 +138,12 @@ This gives:
 2	rake	10	                nan
 ```
 
-## Concatenate DataFrames
----
+## Concatenating DataFrames
 Concatenation is used to combine smaller DataFrames with the same data structure into a larger DataFrame:
 
 General form: `pd.concat([df1, df2])`
 
 ## Review
----
 Data structure (for an e-commerce site):
 ```
 Visits:

@@ -1,5 +1,4 @@
 ## Adding a column
----
 Data used in the examples:
 ```python
 df = pd.DataFrame([
@@ -20,7 +19,6 @@ Command | Function
 `df['Margin'] = df.Price - df['Cost to Manufacture']` | add a column by performing a function on existing column(s)
 
 ## Performing column operations
----
 Data used in the examples:
 ```python
 df = pd.DataFrame([
@@ -42,7 +40,6 @@ Command | Function
 `df.drop(['full name', 'full lowercase name'], axis=1, inplace=True)` | drop specific columns using a list
 
 ## Deleting rows matching a condition
----
 **Step 1:** Create a boolean series with the condition:
 `df['age'] == 30` will give a series like:
 ```
@@ -64,7 +61,6 @@ c False
 `df.drop(indices, inplace=True)`  
 
 ## Modifying values with lambdas
----
 Printed DataFrame used in the following examples:
 ```
 	id	    name	            hourly_wage	hours_worked	last_name	total_earned

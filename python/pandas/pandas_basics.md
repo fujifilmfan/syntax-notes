@@ -1,16 +1,13 @@
 ## Importing the Pandas module
----
 Typically:
 ```python
 import pandas as pd
 ```
 
 ## DataFrames
----
 A DataFrame is a two-dimensional object.  Each column is a Series (rows are displayed in Series form, too).  Each column has a name (string), and each row has an index (integer).
 
 ## Creating a DataFrame
----
 One can create a DataFrame using a dictionary.  The dictionary keys represent column names, and the values are the column values.  Columns must be the same length.
 ```python
 df1 = pd.DataFrame({
@@ -32,7 +29,6 @@ df2 = pd.DataFrame([
 ```
 
 ## Loading and saving CSVs
----
 Usually, DataFrames will be created from existing data. Reading a CSV:
 ```python
 df = pd.read_csv('my_csv_file.csv')
@@ -46,7 +42,6 @@ df.to_csv('new-csv-file.csv')
 Whitespace before or after commas in CSV files is not stripped by Pandas.  Missing values are filled with `NaN`.  The `fillna()` method can be used to replace `NaN` with `0` or `''`, for instance, and `dropna()` can be used to drop the row altogether.
 
 ## General commands
----
 My sample data has the following form (some columns are omitted):
 ```python
             Province/State Country/Region  ... Latitude  Longitude

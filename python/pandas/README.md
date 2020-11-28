@@ -55,4 +55,3 @@ The motivation was to understand enough of the basics of the library to start an
 * [Mismatched merges and outer merge](pandas_merges.md#mismatched_merges_and_outer_merge)
 * [Left and right merge](pandas_merges.md#left_and_right_merge)
 * [Concatenating DataFrames](pandas_merges.md#concatenating_dataframes)
-

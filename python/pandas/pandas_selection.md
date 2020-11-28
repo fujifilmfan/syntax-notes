@@ -1,5 +1,4 @@
 ## Column selection
----
 
 Command | Selection
 ------- | --------
@@ -15,7 +14,6 @@ Index(['Province/State', 'Country/Region', 'Last Update', 'Confirmed',
 ```
 
 ## Row selection
----
 
 Command | Selection
 ------- | --------
@@ -45,7 +43,6 @@ Name: 115, dtype: object
 ```
 
 ## Setting indices
----
 
 Command | Selection
 ------- | --------
@@ -53,9 +50,7 @@ Command | Selection
 `df2 = df.reset_index(drop=True)` | drop the extra column of old indices that would otherwise be added to the new DataFrame
 `df.reset_index(inplace=True, drop=True)` | modify existing DataFrame in place
 
-## Access a value in a series
----
-
+## Accessing a value in a series
 If we have an `orders` table, then `orders[orders.order_id == 3]` gives a series (the row or rows that match). To get the value of a column in that row, we can do:
 ```python
 my_order = orders[orders.order_id == 3]
@@ -63,7 +58,6 @@ my_product = my_order.product_id.values[0]
 ```
 
 ## Page visits funnel (project)
----
 Original CSVs can be found in `cool_t-shirts_inc/` locally.
 
 ```python
