@@ -6,9 +6,9 @@ The motivation was to understand enough of the basics of the library to start an
 
 ### [pandas_basics.md](pandas_basics.md)
 
-* [Creating DataFrames](pandas_basics.md#creating_a_dataframe)
-* [Handling CSVs](pandas_basics.md#loading_and_saving_csvs)
-* [General commands](pandas_basics.md#general_commands)
+* [Creating DataFrames](pandas_basics.md#creating-a-dataframe)
+* [Handling CSVs](pandas_basics.md#loading-and-saving-csvs)
+* [General commands](pandas_basics.md#general-commands)
    * `df.info`
    * `df.index`
    * `df.columns`
@@ -21,38 +21,38 @@ The motivation was to understand enough of the basics of the library to start an
 
 ### [pandas_selection.md](pandas_selection.md)
 
-* [Column selection](pandas_selection.md#column_selection)
-* [Row selection](pandas_selection.md#row_selection)
-* [Setting indices](pandas_selection.md#setting_indices)
-* [Accessing a value in a series](pandas_selection.md#accessing_a_value_in_a_series)
-* [Page visits funnel (example)](pandas_selection.md#page_visits_funnel_project)
+* [Column selection](pandas_selection.md#column-selection)
+* [Row selection](pandas_selection.md#row-selection)
+* [Setting indices](pandas_selection.md#setting-indices)
+* [Accessing a value in a series](pandas_selection.md#accessing-a-value-in-a-series)
+* [Page visits funnel (example)](pandas_selection.md#page-visits-funnel-project)
 
 
 ### [pandas_modification.md](pandas_modification.md)
 
-* [Adding a column](pandas_modification.md#adding_a_column)
-* [Performing column operations](pandas_modification.md#performing_column_operations)
+* [Adding a column](pandas_modification.md#adding-a-column)
+* [Performing column operations](pandas_modification.md#performing-column-operations)
    * `df.apply()`
    * `df.rename()`
    * `df.drop()`
-* [Deleting rows matching a condition](pandas_modification.md#deleting_rows_matching_a_condition)
-* [Modifying values with lambdas](pandas_modification.md#modifying_values_with_lambdas)
+* [Deleting rows matching a condition](pandas_modification.md#deleting-rows-matching-a-condition)
+* [Modifying values with lambdas](pandas_modification.md#modifying-values-with-lambdas)
 
 ### [pandas_aggregates.md](pandas_aggregates.md)
 
-* [Column statistics](pandas_aggregates.md#column_statistics)
-* [Aggregate functions](pandas_aggregates.md#aggregate_functions)
+* [Column statistics](pandas_aggregates.md#column-statistics)
+* [Aggregate functions](pandas_aggregates.md#aggregate-functions)
    * `.groupby()`
    * `.reset_index()`
    * `.rename()`
    * `.apply()`
-* [Pivot tables](pandas_aggregates.md#pivot_tables)
+* [Pivot tables](pandas_aggregates.md#pivot-tables)
 
 ### [pandas_merges.md](pandas_merges.md)
 
-* [Inner merge](pandas_merges.md#inner_merge)
-* [Merge on specific columns](pandas_merges.md#merge_on_specific_columns)
-* [Mismatched merges and outer merge](pandas_merges.md#mismatched_merges_and_outer_merge)
-* [Left and right merge](pandas_merges.md#left_and_right_merge)
-* [Concatenating DataFrames](pandas_merges.md#concatenating_dataframes)
+* [Inner merge](pandas_merges.md#inner-merge)
+* [Merge on specific columns](pandas_merges.md#merge-on-specific-columns)
+* [Mismatched merges and outer merge](pandas_merges.md#mismatched-merges-and-outer-merge)
+* [Left and right merge](pandas_merges.md#left-and-right-merge)
+* [Concatenating DataFrames](pandas_merges.md#concatenating-dataframes)
 
