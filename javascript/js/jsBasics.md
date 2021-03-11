@@ -12,6 +12,12 @@ comment line 1
 comment line 2
 */
 ```
+or
+```javascript
+/**
+* comment line 1
+* comment line 2
+*/
 
 ## Printing
 ---

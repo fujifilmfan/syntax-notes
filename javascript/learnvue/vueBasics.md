@@ -28,7 +28,7 @@ The constructor takes only one argument, the options object.
 
 The `el` key, which stands for HTML **el**ement, takes a CSS selector value which grants that part of the HTML access to the Vue app.  Since `el` targets a single element, it's a good idea to use an ID for this selector.
 
-The `data` key is used for specifying dynamic data.  (Usually this data would come from a database and not by hard coded.)
+The `data` key is used for specifying dynamic data.  (Usually this data would come from a database and not be hard coded.)
 
 ## Templates
 ---
