@@ -8,37 +8,37 @@ The notes in this directory were based on the VueSchool.io ["Vue.js Fundamentals
 We can include Vue in an HTML file just like we would jQuery:  
 
 ```html hl_lines='12'
-{!./src/javascript/vuefundamentals/lesson1a.html!}
+{!./src/javascript/vueFundamentals/lesson1a.html!}
 ```
 
 Create a new Vue instance and pass in a config object (in the curly braces):  
 
 ```html hl_lines='14 15'
-{!./src/javascript/vuefundamentals/lesson1b.html!}
+{!./src/javascript/vueFundamentals/lesson1b.html!}
 ```
 
 Tell the Vue instance where it should exist on the page:  
 
 ```html hl_lines='9 15'
-{!./src/javascript/vuefundamentals/lesson1c.html!}
+{!./src/javascript/vueFundamentals/lesson1c.html!}
 ```
 
 Add data to show on the page, use the templating syntax to display the data (`{{ }}`):  
 
 ```html hl_lines='10 16 17 18'
-{!./src/javascript/vuefundamentals/lesson1d.html!}
+{!./src/javascript/vueFundamentals/lesson1d.html!}
 ```
 
 We can bind an input field to the header data using `v-model`:  
 
 ```html hl_lines='11'
-{!./src/javascript/vuefundamentals/lesson1e.html!}
+{!./src/javascript/vueFundamentals/lesson1e.html!}
 ```
 
 The data is bound both ways, so not only does changing the input update the header, but changing the header updates the input.  We can see that in the console.  First, let's assign our Vue instance to a variable:  
 
 ```html hl_lines='15'
-{!./src/javascript/vuefundamentals/lesson1f.html!}
+{!./src/javascript/vueFundamentals/lesson1f.html!}
 ```
 
 Now, in the console, we can do this:  
@@ -60,13 +60,13 @@ and it will show in our header and input field.
 We can do more than just bind templates to the DOM.  We can also execute some JavaScript:  
 
 ```html hl_lines='10'
-{!./src/javascript/vuefundamentals/lesson2a.html!}
+{!./src/javascript/vueFundamentals/lesson2a.html!}
 ```
 
 We can only evaluate one expression at a time.  We cannot declare variables (`var header = 'welcome';`) or evaluate if statements (`if(header) { return 'welcome'}`).  We _can_ use ternary expressions:  
 
 ```html hl_lines='10'
-{!./src/javascript/vuefundamentals/lesson2b.html!}
+{!./src/javascript/vueFundamentals/lesson2b.html!}
 ```
 
 Here, if `$data.header` is null, we'll get 'welcome'.  
@@ -79,13 +79,13 @@ Here, if `$data.header` is null, we'll get 'welcome'.
 Let's add an array of items as a property to our data:  
 
 ```html hl_lines='21 22 23 24 25'
-{!./src/javascript/vuefundamentals/lesson3a.html!}
+{!./src/javascript/vueFundamentals/lesson3a.html!}
 ```
 
 We can loop over the items using the `v-for` directive:  
 
 ```html hl_lines='11 12 13'
-{!./src/javascript/vuefundamentals/lesson3a.html!}
+{!./src/javascript/vueFundamentals/lesson3a.html!}
 ```
 
 Since `v-for` is reactive, we can add or remove items from our list on the console, and they will show on the page:  
@@ -105,7 +105,7 @@ Since `v-for` is reactive, we can add or remove items from our list on the conso
 To implement adding new items to our list via the app, let's start by adding a `newItem` property to our data and bind it to an input field:  
 
 ```html hl_lines='11 22'
-{!./src/javascript/vuefundamentals/lesson4a.html!}
+{!./src/javascript/vueFundamentals/lesson4a.html!}
 ```
 
 Note that populating `newItem` with other than an empty string will result in that text being rendered in the input field instead of the placeholder text.  
@@ -131,7 +131,7 @@ Array(3) [ "10 party hats", "2 board games", "20 cups" ]
 To add this functionality to the app, we can add a button and use the `v-on` directive.  We also add a `v-on` to the input so we can use the enter key to enter input:  
 
 ```html hl_lines='11 12 13 14'
-{!./src/javascript/vuefundamentals/lesson5a.html!}
+{!./src/javascript/vueFundamentals/lesson5a.html!}
 ```
 
 ## Lesson 6: Vue Methods
@@ -144,7 +144,7 @@ To add this functionality to the app, we can add a button and use the `v-on` dir
 We can simplify our HTML template a bit by defining some functionality in `methods`:  
 
 ```html hl_lines='32 33 34 35 36'
-{!./src/javascript/vuefundamentals/lesson6a.html!}
+{!./src/javascript/vueFundamentals/lesson6a.html!}
 ```
 
 !!! note
@@ -153,13 +153,13 @@ We can simplify our HTML template a bit by defining some functionality in `metho
 Replace `items.push(newItem)` with `saveItem` in our `v-on`s:  
 
 ```html hl_lines='12 13'
-{!./src/javascript/vuefundamentals/lesson6a.html!}
+{!./src/javascript/vueFundamentals/lesson6a.html!}
 ```
 
 Next, reset `newItem` after an item has been added:  
 
 ```html hl_lines='35'
-{!./src/javascript/vuefundamentals/lesson6b.html!}
+{!./src/javascript/vueFundamentals/lesson6b.html!}
 ```
 
 Now, we can type an item to the input field using the app or the console.  Then, in the console, we can execute `saveItem`, and it will work:  
@@ -179,7 +179,7 @@ undefined
 Let's display a message when the item list is empty using the `v-if` directive:  
 
 ```html hl_lines='18'
-{!./src/javascript/vuefundamentals/lesson7a.html!}
+{!./src/javascript/vueFundamentals/lesson7a.html!}
 ```
 
 !!! question
@@ -188,7 +188,7 @@ Let's display a message when the item list is empty using the `v-if` directive:
 Let's hide the input when we're not using it using a state property and the `v-else` directive:  
 
 ```html hl_lines='11 25'
-{!./src/javascript/vuefundamentals/lesson7b.html!}
+{!./src/javascript/vueFundamentals/lesson7b.html!}
 ```
 
 We can change 'default' to 'edit' using Vue Detools and see the input reappear.  
@@ -196,7 +196,7 @@ We can change 'default' to 'edit' using Vue Detools and see the input reappear.
 Now, let's add buttons to toggle the input (note the new `div` as well):  
 
 ```html hl_lines='10 12 13 14'
-{!./src/javascript/vuefundamentals/lesson7c.html!}
+{!./src/javascript/vueFundamentals/lesson7c.html!}
 ```
 
 !!! question
@@ -205,7 +205,7 @@ Now, let's add buttons to toggle the input (note the new `div` as well):
 We also need to be able to toggle the state when the buttons are clicked, so we'll add a new method and apply it to the buttons:  
 
 ```html hl_lines='12 13 43 44 45 46'
-{!./src/javascript/vuefundamentals/lesson7d.html!}
+{!./src/javascript/vueFundamentals/lesson7d.html!}
 ```
 
 
@@ -219,7 +219,7 @@ We also need to be able to toggle the state when the buttons are clicked, so we'
 We can couple any HTML attribute to our data using the `v-bind` directive, thus making it dynamic:  
 
 ```html hl_lines='19'
-{!./src/javascript/vuefundamentals/lesson8a.html!}
+{!./src/javascript/vueFundamentals/lesson8a.html!}
 ```
 
 !!! hint
@@ -244,19 +244,19 @@ Now, let's disable the "Save Item" button when there isn't any input in the form
 Let's add a strikeout to items that have been purchased.  To do that, start by changing the items array to an array of objects:  
 
 ```html hl_lines='33 34 35 36 37 38 39 40 41 42 43 44'
-{!./src/javascript/vuefundamentals/lesson9a.html!}
+{!./src/javascript/vueFundamentals/lesson9a.html!}
 ```
 
 We'll also need to update the way we refer to each item in the template and update our `saveItem` method:  
 
 ```html hl_lines='20 48 49 50 51 52'
-{!./src/javascript/vuefundamentals/lesson9a.html!}
+{!./src/javascript/vueFundamentals/lesson9a.html!}
 ```
 
 We can use array or object syntax to add dynamic classes.  The object syntax is easier:  
 
 ```html hl_lines='20 35'
-{!./src/javascript/vuefundamentals/lesson9b.html!}
+{!./src/javascript/vueFundamentals/lesson9b.html!}
 ```
 
 Note that the item's purchased state has been set to `true`.  If we wanted to use the array syntax instead, we would write `:class="[item.purchased ? 'strikeout' : '']"`.  It's more verbose but does offer flexibility for toggling between different classes.  
@@ -272,7 +272,7 @@ Corresponding CSS:
 We can specify multiple conditions:  
 
 ```html hl_lines='20 36 41 46'
-{!./src/javascript/vuefundamentals/lesson9c.html!}
+{!./src/javascript/vueFundamentals/lesson9c.html!}
 ```
 
 What if we want regular classes along with the dynamic ones?  Here are a couple ways:  
@@ -314,7 +314,7 @@ Computed properties should not change existing data.  They are used for transfor
 If we wanted to enforce a character limit on our input, we could use a computed property to inform the user of the current length:  
 
 ```html hl_lines='17 51 52 53 54 55'
-{!./src/javascript/vuefundamentals/lesson10a.html!}
+{!./src/javascript/vueFundamentals/lesson10a.html!}
 ```
 
 Let's make a computed property that flips our items so that the newest one shows at the top of the list.
