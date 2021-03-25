@@ -1,0 +1,1 @@
+Start here: https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started-search.html

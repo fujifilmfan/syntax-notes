@@ -94,7 +94,7 @@ Vue.component('plan', {
 
 Then, in our HTML:  
 
-```html
+```html hl_lines='1 2 3 9'
   <plan name="The Single"></plan>
   <plan name="The Curious"></plan>
   <plan name="The Addict"></plan>
