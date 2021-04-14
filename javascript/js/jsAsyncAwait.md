@@ -87,12 +87,13 @@ const myFunc = async () => {
 
 `async` functions return a promise, so we can use `.then()` and `.catch`.
 
-three types of returns:
+Three types of returns:  
+
 * If there’s nothing returned from the function, it will return a promise with a resolved value of undefined
 * If there’s a non-promise value returned from the function, it will return a promise resolved to that value
 * If a promise is returned from the function, it will simply return that promise
 
-example of a non-promise value returned:
+Example of a non-promise value returned:
 ```javascript
 async function fivePromise() { 
   return 5;
@@ -107,7 +108,7 @@ fivePromise()
 ## `await` operator
 ---
 
-`await` returns the resolved value of a promise
+`await` returns the resolved value of a promise.
 
 ```javascript
 // Native promise version:

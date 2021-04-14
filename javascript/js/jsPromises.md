@@ -209,7 +209,7 @@ checkInventory(order)
 
 It accepts an array of promises and returns a single promise.
 
-If all arguments in the array resolve, then an array with the resolve value of each promicse will be returned.  If any promise fails, then `Promise.all()` will reject.
+If all arguments in the array resolve, then an array with the resolve value of each promise will be returned.  If any promise fails, then `Promise.all()` will reject.
 
 ```javascript
 const {checkAvailability} = require('./library.js');
