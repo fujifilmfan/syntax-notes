@@ -29,6 +29,10 @@ Or, if you don't want/need a background service you can just run:
 Note the two options for starting Postgres mentioned in the Brew output above.  
 Postgres runs on port `5432` by default.  
 
+I also had to add it to the `PATH` manually in my `~/.zshrc`:  
+`export PATH="/usr/local/opt/postgresql@10/bin:$PATH"`  
+Why?  
+  
 ### Docker
 
 Several apps I've been working on spin up a Docker postgres container and run Flyway to create needed databases.  Since their creation is done for me, I won't go into the details now.
@@ -44,6 +48,7 @@ Enter password for new role:
 Enter it again:
 > psql -U postgres
 kklein=> GRANT ALL PRIVILEGES ON DATABASE imu TO imu;
+GRANT
 # one might need to run `> createdb kklein` first
 ```  
 
@@ -204,3 +209,71 @@ with conn.cursor() as cur:
 ```
 Why? The only thing I've found is: https://gitmemory.com/issue/psycopg/psycopg2/1316/872811346 "I understand what the error means (calling with conn inside of with conn)"  
 
+## Ranges
+
+### References
+
+[8.17. Range Types](https://www.postgresql.org/docs/10/rangetypes.html)  
+[9.19. Range Functions and Operators](https://www.postgresql.org/docs/10/functions-range.html)  
+
+### Example useage
+
+```sql
+CREATE TABLE reservation (room int, during tsrange);
+INSERT INTO reservation VALUES (1108, '[2010-01-01 14:30, 2010-01-02 14:30)');
+-- INSERT 0 1
+SELECT * FROM reservation;
+--  room |                    during
+-- ------+-----------------------------------------------
+--  1108 | ["2010-01-01 14:30:00","2010-01-02 14:30:00")
+-- (1 row)
+UPDATE reservation SET during = tsrange(lower(during), '2010-01-03 14:30');
+-- UPDATE 1
+SELECT * FROM reservation WHERE during @> '2010-01-03'::timestamp;
+--  room |                    during
+-- ------+-----------------------------------------------
+--  1108 | ["2010-01-01 14:30:00","2010-01-03 14:30:00")
+-- (1 row)
+SELECT * FROM reservation WHERE upper(during) < '2010-01-02'::timestamp;
+```
+
+## JSON queries
+
+`harvest_urls` is an array of directories:
+```json
+[
+  "Alaska Science Center Water/",
+  "Arizona Water Science Center/",
+  "California Water Science Center/"
+]
+```
+
+Let's look for the repository containing "Arizona Water Science Center/" in its `harvest_urls` array.  
+
+To search for the string as a JSON value at the top level:  
+```sql
+SELECT * FROM repositories
+WHERE harvest_urls @> '"Arizona Water Science Center/"';
+```
+!!! info
+    The string needs to be wrapped in single quotes. For an integer or Boolean, this would look like `'123'` and `'true'`, respectively.
+
+To query whether the text exists as a top-level key:  
+```sql
+SELECT * FROM repositories
+WHERE harvest_urls ? 'Arizona Water Science Center/';
+```
+
+To search for it as an inexact match:  
+```sql
+SELECT * 
+FROM repositories r
+WHERE EXISTS (
+  SELECT * 
+  FROM jsonb_array_elements_text(harvest_urls) AS r(subdirs) 
+  WHERE r.subdirs ILIKE 'arizona%'
+);
+```
+
+!!! warning
+    This currently only gives one row but could give multiple rows if there was more than one sub-directory named "Arizona...".
