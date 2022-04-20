@@ -1,0 +1,64 @@
+site_name: Code notes
+site_description: Code syntax notes for a variety of languages
+
+repo_name: 
+repo_url: 
+
+theme:
+    name: 'material'
+    palette:
+        primary: 'deep purple'
+        accent: 'light green'
+    logo: 'img/notes.jpg'
+    favicon: 'img/notes.jpg'
+
+nav:
+    - Code notes: 'index.md'
+    - JavaScript:
+        - JavaScript:
+            - Introduction: 'javascript/js/jsIndex.md'
+            - Basics: 'javascript/js/jsBasics.md'
+            - Conditionals: 'javascript/js/jsConditionals.md'
+            - Functions: 'javascript/js/jsFunctions.md'
+            - Arrays: 'javascript/js/jsArrays.md'
+            - Loops: 'javascript/js/jsLoops.md'
+            - Iterators: 'javascript/js/jsIterators.md'
+            - Objects: 'javascript/js/jsObjects.md'
+            - Transpilation: 'javascript/js/jsTranspilation.md'
+            - Modules: 'javascript/js/jsModules.md'
+            - Promises: 'javascript/js/jsPromises.md'
+            - Async/Await: 'javascript/js/jsAsyncAwait.md'
+            - Requests: 'javascript/js/jsRequests.md'
+        - Express:
+            - Introduction: 'javascript/express/expressIndex.md'
+            - Routes: 'javascript/express/expressRoutes.md'
+            - Routers: 'javascript/express/expressRouters.md'
+            - Middleware: 'javascript/express/expressMiddleware.md'
+            - Router Parameters: 'javascript/express/expressRouterParameters.md'
+            - Review Exercises: 'javascript/express/expressCodeChallenge.md'
+        - Vue:
+            - Introduction: 'javascript/vue/vueIndex.md'
+            - Basics: 'javascript/vue/vueBasics.md'
+            - Vue Data: 'javascript/vue/vueData.md'
+            - Vue Forms: 'javascript/vue/vueForms.md'
+            - Styling Elements: 'javascript/vue/vueStylingElements.md'
+    - Python:
+        - Pandas:
+          - Introduction: 'python/pandas/pandas_index.md'
+          - Basics: 'python/pandas/pandas_basics.md'
+          - Selecting Data: 'python/pandas/pandas_selection.md'
+          - Modifying DataFrames: 'python/pandas/pandas_modification.md'
+          - Aggregating Data: 'python/pandas/pandas_aggregates.md'
+          - Merging DataFrames: 'python/pandas/pandas_merges.md'
+    - Documentation: 'documentation.md'
+
+markdown_extensions:
+    - admonition
+    - codehilite:
+        linenums: false
+    - markdown.extensions.codehilite:
+        guess_lang: false
+    - markdown_include.include:
+        base_path: docs
+    - toc:
+       permalink: true
