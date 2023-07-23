@@ -7,7 +7,7 @@ authors = ["Kurt Klein <fuji.film.fan@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.7"
 click = "7.1.1"
-future = "0.18.2"
+future = "0.18.3"
 Jinja2 = "2.11.2"
 joblib = "0.14.1"
 livereload = "2.6.1"
